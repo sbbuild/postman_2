@@ -451,54 +451,16 @@
         "url": "{{ApiUser}}/sub-projects/{{SubProjectId}}/dashboard"
       },
       "response": []
-    },
-    {
-      "name": "/sub-projects/{{SubProjectId}}/sliders Copy",
-      "event": [
-        {
-          "listen": "test",
-          "script": {
-            "id": "10ecba83-73ec-4ae5-866e-d17dfce70168",
-            "exec": [
-              "pm.test(\"Status code is 200\", function () {\r",
-              "    pm.response.to.have.status(200);\r",
-              "});\r",
-              "\r",
-              "var expectedTime = 100;\r",
-              "pm.test(request.name + \" | Response time is less than \" + expectedTime + \"ms\", function () {\r",
-              "    pm.expect(pm.response.responseTime).to.be.below(expectedTime);\r",
-              "});"
-            ],
-            "type": "text/javascript"
-          }
-        }
-      ],
-      "id": "79082e2f-10b4-420c-898f-e482f0198506",
-      "protocolProfileBehavior": {
-        "disableBodyPruning": true
-      },
-      "request": {
-        "auth": {
-          "type": "bearer",
-          "bearer": {
-            "token": "{{token}}"
-          }
-        },
-        "method": "GET",
-        "header": [],
-        "url": "{{ApiUser}}/sub-projects/{{SubProjectId}}/sliders"
-      },
-      "response": []
     }
   ],
   "variable": [
     {
-      "id": "94653ee9-988b-4fdb-ae58-e0d0b3c5f171",
+      "id": "73cc3435-588c-425d-9f12-a4f077687d5d",
       "key": "token",
       "value": ""
     },
     {
-      "id": "5cbd8ba7-055a-4bca-8909-95ed9eae462c",
+      "id": "90463ffc-6cba-4c76-adac-32672d002f19",
       "key": "userId",
       "value": ""
     }
