@@ -451,63 +451,16 @@
         "url": "{{ApiUser}}/sub-projects/{{SubProjectId}}/dashboard"
       },
       "response": []
-    },
-    {
-      "name": "Authorize IFT Copy",
-      "event": [
-        {
-          "listen": "test",
-          "script": {
-            "id": "ec004361-43ab-421e-a9ac-c4aea1c7dd43",
-            "exec": [
-              "pm.test(\"Status code is 200\", function () {\r",
-              "    pm.response.to.have.status(200);\r",
-              "});\r",
-              "\r",
-              "var data = pm.response.json();\r",
-              "pm.collectionVariables.set(\"token\", data.data.token);\r",
-              "\r",
-              "var expectedTime = 100;\r",
-              "pm.test(request.name + \" | Response time is less than \" + expectedTime + \"ms\", function () {\r",
-              "    pm.expect(pm.response.responseTime).to.be.below(expectedTime);\r",
-              "});"
-            ],
-            "type": "text/javascript"
-          }
-        }
-      ],
-      "id": "f1e0eac8-7d8d-43a9-9c80-8d59d02f5777",
-      "protocolProfileBehavior": {
-        "disableBodyPruning": true
-      },
-      "request": {
-        "auth": {
-          "type": "noauth"
-        },
-        "method": "POST",
-        "header": [],
-        "body": {
-          "mode": "raw",
-          "raw": "{\r\n  \"username\": \"manager@\",\r\n  \"password\": \"Password\"\r\n}",
-          "options": {
-            "raw": {
-              "language": "json"
-            }
-          }
-        },
-        "url": "{{ApiUser}}/token"
-      },
-      "response": []
     }
   ],
   "variable": [
     {
-      "id": "72902a4e-06c1-4ca9-b09d-3307741e201f",
+      "id": "5ec7368f-d089-422b-89b9-ac779d1354d2",
       "key": "token",
       "value": ""
     },
     {
-      "id": "a5d9cee4-dd82-4402-906b-b7e79263439f",
+      "id": "b636cc2b-0708-4d58-858b-4b7caa9c7d88",
       "key": "userId",
       "value": ""
     }
