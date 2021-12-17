@@ -91,6 +91,44 @@
       "response": []
     },
     {
+      "name": "/sub-projects/{{SubProjectId}}/sliders Copy",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "10ecba83-73ec-4ae5-866e-d17dfce70168",
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {\r",
+              "    pm.response.to.have.status(200);\r",
+              "});\r",
+              "\r",
+              "var expectedTime = 100;\r",
+              "pm.test(request.name + \" | Response time is less than \" + expectedTime + \"ms\", function () {\r",
+              "    pm.expect(pm.response.responseTime).to.be.below(expectedTime);\r",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "id": "79082e2f-10b4-420c-898f-e482f0198506",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": {
+            "token": "{{token}}"
+          }
+        },
+        "method": "GET",
+        "header": [],
+        "url": "{{ApiUser}}/sub-projects/{{SubProjectId}}/sliders"
+      },
+      "response": []
+    },
+    {
       "name": "/sub-projects/{{SubProjectId}}/spheres",
       "event": [
         {
@@ -455,12 +493,12 @@
   ],
   "variable": [
     {
-      "id": "0339ff49-e5bc-43bd-8eb2-8a1634014f1c",
+      "id": "e47ee971-411d-4424-9975-5b390e925133",
       "key": "token",
       "value": ""
     },
     {
-      "id": "a526fcc3-9952-436c-9766-6ff885bd74f0",
+      "id": "4e7c4821-64b3-4216-a9bb-14d7e151293b",
       "key": "userId",
       "value": ""
     }
