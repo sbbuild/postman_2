@@ -1,0 +1,515 @@
+{
+  "info": {
+    "_postman_id": "c5dc7cf2-11c9-4e68-8795-bcd68abcf4d5",
+    "name": "Нагрузочное тестирование",
+    "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Authorize IFT",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "ee72962d-5814-40ea-8982-36efb4bf1ece",
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {\r",
+              "    pm.response.to.have.status(200);\r",
+              "});\r",
+              "\r",
+              "var data = pm.response.json();\r",
+              "pm.collectionVariables.set(\"token\", data.data.token);\r",
+              "\r",
+              "var expectedTime = 100;\r",
+              "pm.test(request.name + \" | Response time is less than \" + expectedTime + \"ms\", function () {\r",
+              "    pm.expect(pm.response.responseTime).to.be.below(expectedTime);\r",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "id": "00ef118c-7d8b-4c79-8636-36ae0fed648d",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"username\": \"manager@\",\r\n  \"password\": \"Password\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": "{{ApiUser}}/token"
+      },
+      "response": []
+    },
+    {
+      "name": "/sub-projects/{{SubProjectId}}/sliders",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "bf3d5fd6-dd29-41bb-aae0-5b0cfa5118a0",
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {\r",
+              "    pm.response.to.have.status(200);\r",
+              "});\r",
+              "\r",
+              "var expectedTime = 100;\r",
+              "pm.test(request.name + \" | Response time is less than \" + expectedTime + \"ms\", function () {\r",
+              "    pm.expect(pm.response.responseTime).to.be.below(expectedTime);\r",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "id": "acee2e3a-9287-4660-b500-36b7fc7386c3",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": {
+            "token": "{{token}}"
+          }
+        },
+        "method": "GET",
+        "header": [],
+        "url": "{{ApiUser}}/sub-projects/{{SubProjectId}}/sliders"
+      },
+      "response": []
+    },
+    {
+      "name": "/sub-projects/{{SubProjectId}}/spheres",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "8ae9036f-dd5b-4b0b-a63c-48d921b9fa4e",
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {\r",
+              "    pm.response.to.have.status(200);\r",
+              "});\r",
+              "\r",
+              "var expectedTime = 100;\r",
+              "pm.test(request.name + \" | Response time is less than \" + expectedTime + \"ms\", function () {\r",
+              "    pm.expect(pm.response.responseTime).to.be.below(expectedTime);\r",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "id": "a0115c92-de93-4347-b9a3-7cc398c956c4",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": {
+            "token": "{{token}}"
+          }
+        },
+        "method": "GET",
+        "header": [],
+        "url": "{{ApiUser}}/sub-projects/{{SubProjectId}}/spheres"
+      },
+      "response": []
+    },
+    {
+      "name": "/sub-projects/{{SubProjectId}}/teps",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "39b80177-bfbf-43a5-a10e-30033cad3b0b",
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {\r",
+              "    pm.response.to.have.status(200);\r",
+              "});\r",
+              "\r",
+              "var expectedTime = 100;\r",
+              "pm.test(request.name + \" | Response time is less than \" + expectedTime + \"ms\", function () {\r",
+              "    pm.expect(pm.response.responseTime).to.be.below(expectedTime);\r",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "id": "91467a24-830e-4d7b-a433-5f3e68031b4f",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": {
+            "token": "{{token}}"
+          }
+        },
+        "method": "GET",
+        "header": [],
+        "url": "{{ApiUser}}/sub-projects/{{SubProjectId}}/teps"
+      },
+      "response": []
+    },
+    {
+      "name": "/sub-projects/{{SubProjectId}}/cameras",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "ea39d9e4-ea98-4fcd-9f8c-ac8d3fcb8d96",
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {\r",
+              "    pm.response.to.have.status(200);\r",
+              "});\r",
+              "\r",
+              "var expectedTime = 100;\r",
+              "pm.test(request.name + \" | Response time is less than \" + expectedTime + \"ms\", function () {\r",
+              "    pm.expect(pm.response.responseTime).to.be.below(expectedTime);\r",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "id": "904a69f6-9bf2-4147-88f4-21af5b3ba790",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": {
+            "token": "{{token}}"
+          }
+        },
+        "method": "GET",
+        "header": [],
+        "url": "{{ApiUser}}/sub-projects/{{SubProjectId}}/cameras"
+      },
+      "response": []
+    },
+    {
+      "name": "/sub-projects/{{SubProjectId}}/flights",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "4e8f12ab-89a2-40b9-a5d5-9c9855a546e3",
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {\r",
+              "    pm.response.to.have.status(200);\r",
+              "});\r",
+              "\r",
+              "var expectedTime = 100;\r",
+              "pm.test(request.name + \" | Response time is less than \" + expectedTime + \"ms\", function () {\r",
+              "    pm.expect(pm.response.responseTime).to.be.below(expectedTime);\r",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "id": "ae907d8d-ebf6-4c19-8c61-6d5d30ca3263",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": {
+            "token": "{{token}}"
+          }
+        },
+        "method": "GET",
+        "header": [],
+        "url": "{{ApiUser}}/sub-projects/{{SubProjectId}}/flights"
+      },
+      "response": []
+    },
+    {
+      "name": "/sub-projects/{{SubProjectId}}/files",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "daef0498-108b-45b5-9053-f4ee276d8155",
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {\r",
+              "    pm.response.to.have.status(200);\r",
+              "});\r",
+              "\r",
+              "var expectedTime = 100;\r",
+              "pm.test(request.name + \" | Response time is less than \" + expectedTime + \"ms\", function () {\r",
+              "    pm.expect(pm.response.responseTime).to.be.below(expectedTime);\r",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "id": "6d5c5779-ed04-49d0-ab3b-d2b0af370424",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": {
+            "token": "{{token}}"
+          }
+        },
+        "method": "GET",
+        "header": [],
+        "url": "{{ApiUser}}/sub-projects/{{SubProjectId}}/files"
+      },
+      "response": []
+    },
+    {
+      "name": "/sub-projects/{{SubProjectId}}/news?from=0&count=100",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "f832ee8a-dbb6-430a-87d2-fb989602696d",
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {\r",
+              "    pm.response.to.have.status(200);\r",
+              "});\r",
+              "\r",
+              "var expectedTime = 100;\r",
+              "pm.test(request.name + \" | Response time is less than \" + expectedTime + \"ms\", function () {\r",
+              "    pm.expect(pm.response.responseTime).to.be.below(expectedTime);\r",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "id": "eda2fe0d-7aba-4c88-b1c9-0058573a973b",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": {
+            "token": "{{token}}"
+          }
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{ApiUser}}/sub-projects/{{SubProjectId}}/news?from=0&count=100\n",
+          "host": [
+            "{{ApiUser}}"
+          ],
+          "path": [
+            "sub-projects",
+            "{{SubProjectId}}",
+            "news"
+          ],
+          "query": [
+            {
+              "key": "from",
+              "value": "0"
+            },
+            {
+              "key": "count",
+              "value": "100\n"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "/sub-projects/{{SubProjectId}}/life-cycles",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "c6410a37-90f5-476b-acaf-6b66c384c22e",
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {\r",
+              "    pm.response.to.have.status(200);\r",
+              "});\r",
+              "\r",
+              "var expectedTime = 100;\r",
+              "pm.test(request.name + \" | Response time is less than \" + expectedTime + \"ms\", function () {\r",
+              "    pm.expect(pm.response.responseTime).to.be.below(expectedTime);\r",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "id": "f5394d04-d30d-4764-b4f8-d43f1edaac61",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": {
+            "token": "{{token}}"
+          }
+        },
+        "method": "GET",
+        "header": [],
+        "url": "{{ApiUser}}/sub-projects/{{SubProjectId}}/life-cycles"
+      },
+      "response": []
+    },
+    {
+      "name": "/sub-projects/{{SubProjectId}}/short-statuses/lastlast",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "d0dd8f5b-6ecf-4799-96da-ea33a5b92d67",
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {\r",
+              "    pm.response.to.have.status(200);\r",
+              "});\r",
+              "\r",
+              "var expectedTime = 100;\r",
+              "pm.test(request.name + \" | Response time is less than \" + expectedTime + \"ms\", function () {\r",
+              "    pm.expect(pm.response.responseTime).to.be.below(expectedTime);\r",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "id": "0cab9b3f-ac64-4043-a753-594d8c6b7204",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": {
+            "token": "{{token}}"
+          }
+        },
+        "method": "GET",
+        "header": [],
+        "url": "{{ApiUser}}/sub-projects/{{SubProjectId}}/short-statuses/last"
+      },
+      "response": []
+    },
+    {
+      "name": "/sub-projects/{{SubProjectId}}/dashboard",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "5306e5ac-0e7d-4b65-a952-b5110296cc99",
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {\r",
+              "    pm.response.to.have.status(200);\r",
+              "});\r",
+              "\r",
+              "var expectedTime = 300;\r",
+              "pm.test(request.name + \" | Response time is less than \" + expectedTime + \"ms\", function () {\r",
+              "    pm.expect(pm.response.responseTime).to.be.below(expectedTime);\r",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "id": "5d2f0a13-bf2d-48ba-bd1f-b1a81606b76e",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": {
+            "token": "{{token}}"
+          }
+        },
+        "method": "GET",
+        "header": [],
+        "url": "{{ApiUser}}/sub-projects/{{SubProjectId}}/dashboard"
+      },
+      "response": []
+    },
+    {
+      "name": "Authorize IFT Copy",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "ec004361-43ab-421e-a9ac-c4aea1c7dd43",
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {\r",
+              "    pm.response.to.have.status(200);\r",
+              "});\r",
+              "\r",
+              "var data = pm.response.json();\r",
+              "pm.collectionVariables.set(\"token\", data.data.token);\r",
+              "\r",
+              "var expectedTime = 100;\r",
+              "pm.test(request.name + \" | Response time is less than \" + expectedTime + \"ms\", function () {\r",
+              "    pm.expect(pm.response.responseTime).to.be.below(expectedTime);\r",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "id": "f1e0eac8-7d8d-43a9-9c80-8d59d02f5777",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"username\": \"manager@\",\r\n  \"password\": \"Password\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": "{{ApiUser}}/token"
+      },
+      "response": []
+    }
+  ],
+  "variable": [
+    {
+      "id": "72902a4e-06c1-4ca9-b09d-3307741e201f",
+      "key": "token",
+      "value": ""
+    },
+    {
+      "id": "a5d9cee4-dd82-4402-906b-b7e79263439f",
+      "key": "userId",
+      "value": ""
+    }
+  ]
+}
